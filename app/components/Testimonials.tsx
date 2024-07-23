@@ -14,7 +14,7 @@ interface Testimonial {
 const allTestimonials: Testimonial[] = [
   {
     id: 1,
-    name: "John Doe",
+    name: "John Wick",
     profileUrl: "https://via.placeholder.com/100",
     quote: "This service was excellent and beyond my expectations. Highly recommend!",
     title: "CEO, Example Corp",
