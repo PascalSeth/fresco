@@ -46,7 +46,7 @@ const getStarRating = (rating: number) => {
 const PopularDishes: React.FC<Props> = () => {
   return (
     <div className="w-full py-8 flex flex-col items-center bg-gray-50">
-      <h2 className="text-4xl font-bold text-gray-800 mb-8">Popular Dishes</h2>
+      <h2 className="text-4xl font-bold text-gray-800 mb-8">Popular <span className='text-orange-400'>Dishes</span> </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 justify-center">
         {dummyDishes.map(dish => (
           <div key={dish.id} className="bg-white shadow-lg w-72 rounded-lg overflow-hidden transition-transform transform hover:scale-105">
