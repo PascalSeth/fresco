@@ -14,7 +14,7 @@ function Navbar({}: Props) {
     <div className='flex overflow-x-hidden top-0 sticky w-full z-[999] bg-white items-center justify-between px-4 py-2'>
       <div className=' max-w-6xl mx-auto flex items-center w-full justify-between '>
       <div>
-        <Image src="/logo.png" alt='logo' width={130} height={130} />
+        <Image src="/logo.png" alt='logo' width={130} height={60} />
       </div>
 
       <div className='hidden md:flex items-center space-x-4 font-semibold'>

@@ -64,7 +64,7 @@ const Footer: React.FC<Props> = () => {
 
       {/* Bottom Copyright */}
       <div className=" text-gray-400 pt-4 text-center">
-        <p>&copy; {new Date().getFullYear()} Garu Palace All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Fresco All rights reserved.</p>
       </div>
     </footer>
   );

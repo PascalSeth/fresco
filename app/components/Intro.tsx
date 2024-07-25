@@ -21,11 +21,11 @@ const Intro: React.FC<Props> = () => {
       {/* Text Section */}
       <div className="flex-1 mb-8 lg:mb-0 lg:pr-4 flex flex-col items-center lg:items-start">
         <h1 className="text-xl sm:text-2xl md:text-4xl font-bold text-black mb-4 text-center lg:text-left">
-          Welcome to <span className='text-orange-400'>Guru Palace</span>
+          Welcome to <span className='text-orange-400'>Fresco</span>
         </h1>
         <p className="font-semibold sm:text-lg md:text-xl text-black mb-6 text-center lg:text-left">
-          At Guru Palace Indian Restaurant, we offer distinctive cuisine in an informal, friendly setting. Our restaurant enjoys a reputation for impeccable service, elegant Asian-style décor, and exquisite Indian food. Dining at our restaurant is like visiting India without leaving your hometown–an exciting blend of authentic Indian food, culture, and atmosphere awaits.
-        </p>
+
+        Welcome to Fresco Restaurant, where we offer distinctive cuisine in a warm and inviting setting. Renowned for our impeccable service, elegant décor, and exquisite dishes, our restaurant provides an exceptional dining experience. Enjoy the vibrant flavors and rich atmosphere that make every visit memorable.        </p>
         <div className="flex justify-center lg:justify-start">
           <button className="bg-orange-500 rounded-[1pc] text-white font-semibold px-6 py-3 hover:bg-orange-600 transition-colors">
             Explore Our Menu

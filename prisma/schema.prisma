@@ -1,0 +1,131 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Restaurant {
+  id          String       @id @default(uuid())
+  name        String
+  address     String
+  phoneNumber String
+  menu        Menu[]
+  orders      Order[]
+  admins      Admin[]     // Relation to Admin model
+  gallery     Gallery[]   // Relation to Gallery model
+  slides      Slider[]     // Relation to Slide model
+}
+
+model Category {
+  id          String       @id @default(uuid())
+  name        String
+  imageUrl    String?      // Optional image URL for the category
+  subcategories Subcategory[]
+}
+
+model Subcategory {
+  id          String       @id @default(uuid())
+  name        String
+  imageUrl    String?      // Optional image URL for the subcategory
+  category    Category     @relation(fields: [categoryId], references: [id])
+  categoryId  String
+  foods       Food[]
+}
+
+model Food {
+  id          String       @id @default(uuid())
+  name        String
+  description String
+  price       Float
+  imageUrl    String?      // Optional image URL for the food item
+  subcategory Subcategory @relation(fields: [subcategoryId], references: [id])
+  subcategoryId String
+  orderItems  OrderItem[] // Added field to establish the relation
+}
+
+model Menu {
+  id          String       @id @default(uuid())
+  name        String
+  description String
+  price       Float
+  restaurant  Restaurant  @relation(fields: [restaurantId], references: [id])
+  restaurantId String
+}
+
+model Customer {
+  id          String       @id @default(uuid())
+  name        String
+  email       String       @unique
+  phoneNumber String
+  orders      Order[]
+}
+
+model Order {
+  id           String       @id @default(uuid())
+  orderNumber  String       @unique
+  totalAmount  Float
+  orderType    OrderType
+  status       OrderStatus
+  customer     Customer     @relation(fields: [customerId], references: [id])
+  customerId   String
+  restaurant   Restaurant   @relation(fields: [restaurantId], references: [id])
+  restaurantId String
+  items        OrderItem[]
+}
+
+model OrderItem {
+  id        String   @id @default(uuid())
+  quantity  Int
+  foodItem  Food     @relation(fields: [foodItemId], references: [id])
+  foodItemId String
+  order     Order    @relation(fields: [orderId], references: [id])
+  orderId   String
+}
+
+model Admin {
+  id           String       @id @default(uuid())
+  name         String
+  email        String      @unique
+  phoneNumber  String
+  passwordHash String      // Store hashed passwords securely
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
+  restaurantId String
+}
+
+model Gallery {
+  id          String   @id @default(uuid())
+  imageUrl    String
+  title       String
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  restaurant  Restaurant @relation(fields: [restaurantId], references: [id])
+  restaurantId String
+}
+
+model Slider {
+  id          String   @id @default(uuid())
+  imageUrl    String
+  title       String
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  restaurant  Restaurant @relation(fields: [restaurantId], references: [id])
+  restaurantId String
+}
+
+enum OrderType {
+  PICKUP
+  DELIVERY
+}
+
+enum OrderStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+  CANCELED
+}

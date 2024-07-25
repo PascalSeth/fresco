@@ -6,7 +6,7 @@ export default function ContactUs({}: Props) {
   const contactDetails = {
     address: "123 Main Street, Anytown, USA",
     phone: "+1 (555) 123-4567",
-    email: "info@gurupalace.com",
+    email: "info@Fresco.com",
     openingHours: [
       { day: "Monday - Friday", hours: "10:00 AM - 10:00 PM" },
       { day: "Saturday", hours: "11:00 AM - 11:00 PM" },
